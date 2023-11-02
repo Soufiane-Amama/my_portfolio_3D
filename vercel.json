@@ -5,11 +5,5 @@
         "src": "vite build", 
         "use": "@vercel/static-build"
       }
-    ],
-    "routes": [
-        {
-          "src": "/(.*)",
-          "dest": "/"
-        }
-      ]
+    ]
   }
