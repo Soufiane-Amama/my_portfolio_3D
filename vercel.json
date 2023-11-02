@@ -5,13 +5,6 @@
         "src": "build-command", 
         "use": "@vercel/static-build"
       }
-    ],
-    "routes": [
-      { "handle": "filesystem" }, 
-      {
-        "src": "/api/(.*)", 
-        "dest": "api-file"
-      }
     ]
   }
   
