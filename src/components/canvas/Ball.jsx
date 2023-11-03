@@ -104,7 +104,6 @@ const BallCanvas = ({ icons }) => {
     camera={{ position: [0, 0, 5], fov: 75 }}
     gl={{ preserveDrawingBuffer: true }}>
       <Suspense fallback={<CanvasLoader />}>
-        <OrbitControls enableZoom={false} />
         <group>
           {icons.map((icon, index) => {
             const row = Math.floor(index / 3);
