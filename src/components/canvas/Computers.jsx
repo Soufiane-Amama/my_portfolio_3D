@@ -30,28 +30,28 @@ const Computers = ({ isMobile }) => {
 };
 
 const ComputersCanvas = () => {
-  // const [isMobile, setIsMobile] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
-  // useEffect(() => {
-  //   // Add a listener for changes to the screen size | إضافة مستمع للتغييرات في حجم الشاشة
-  //   const mediaQuery = window.matchMedia("(max-width: 390px)");
+  useEffect(() => {
+    // Add a listener for changes to the screen size | إضافة مستمع للتغييرات في حجم الشاشة
+    const mediaQuery = window.matchMedia("(max-width: 900px)");
 
-  //   // Set the initial value of the `isMobile` state variable | قم بتعيين القيمة الأولية لمتغير الحالة `isMobile`
-  //   setIsMobile(mediaQuery.matches);
+    // Set the initial value of the `isMobile` state variable | قم بتعيين القيمة الأولية لمتغير الحالة `isMobile`
+    setIsMobile(mediaQuery.matches);
 
-  //   // Define a callback function to handle changes to the media query | تحديد دالة رد الاتصال للتعامل مع التغييرات في استعلام الوسائط
-  //   const handleMediaQueryChange = (event) => {
-  //     setIsMobile(event.matches);
-  //   };
+    // Define a callback function to handle changes to the media query | تحديد دالة رد الاتصال للتعامل مع التغييرات في استعلام الوسائط
+    const handleMediaQueryChange = (event) => {
+      setIsMobile(event.matches);
+    };
 
-  //   // Add the callback function as a listener for changes to the media query | أضف دالة رد الاتصال كمستمع للتغييرات في استعلام الوسائط
-  //   mediaQuery.addEventListener("change", handleMediaQueryChange);
+    // Add the callback function as a listener for changes to the media query | أضف دالة رد الاتصال كمستمع للتغييرات في استعلام الوسائط
+    mediaQuery.addEventListener("change", handleMediaQueryChange);
 
-  //   // Remove the listener when the component is unmounted | قم بإزالة المستمع عندما يكون المكون غير مثبت
-  //   return () => {
-  //     mediaQuery.removeEventListener("change", handleMediaQueryChange);
-  //   };
-  // }, []);
+    // Remove the listener when the component is unmounted | قم بإزالة المستمع عندما يكون المكون غير مثبت
+    return () => {
+      mediaQuery.removeEventListener("change", handleMediaQueryChange);
+    };
+  }, []);
 
   return (
     <Canvas
@@ -67,7 +67,7 @@ const ComputersCanvas = () => {
           maxPolarAngle={Math.PI / 2}
           minPolarAngle={Math.PI / 2}
         />
-        <Computers  />
+        <Computers isMobile={isMobile} />
       </Suspense>
 
       <Preload all />
